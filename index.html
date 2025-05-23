@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Informasi TJKT</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: linear-gradient(-45deg, #fbc2eb, #a6c1ee, #ff9a9e, #fad0c4);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      text-align: center;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .logo {
+      margin-top: 20px;
+    }
+
+    .logo img {
+      height: 120px;
+      animation: pulse 4s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 15px 0;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      padding-left: 100%;
+      white-space: nowrap;
+      font-size: 32px;
+      font-weight: bold;
+      color: yellow;
+      animation: scroll-text 20s linear infinite, glow 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-text {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff7e5f, 0 0 30px #ffff1c; }
+      50% { text-shadow: 0 0 20px #fff, 0 0 30px #00c3ff, 0 0 40px #a6c1ee; }
+    }
+
+    .datetime {
+      font-size: 28px;
+      margin: 20px auto;
+      padding: 15px 40px;
+      background-color: rgba(255, 255, 255, 0.6);
+      color: #000;
+      border-radius: 20px;
+      display: inline-block;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #00c3ff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .btn:hover {
+      background: #007bb5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO -->
+  <div class="logo">
+    <img src="Logo_SMKN_5_BONE__2_-removebg-preview.png" alt="Logo Sekolah">
+  </div>
+
+  <!-- TEKS BERJALAN -->
+  <div class="marquee-container">
+    <div class="marquee-text">
+      SELAMAT DATANG DI JURUSAN TEKNIK JARINGAN KOMPUTER DAN TELEKOMUNIKASI ( TJKT ) SMKN 5 BONE - SMK BISA - SMK HEBAT
+    </div>
+  </div>
+
+  <!-- JAM DAN TANGGAL -->
+  <div class="datetime" id="datetime"></div>
+
+ 
+
+  <!-- MUSIK LATAR -->
+  <audio id="bgm" autoplay loop>
+    <source src="musik mp3.mpeg" type="musik mp3">
+    Browser Anda tidak mendukung audio HTML5.
+  </audio>
+   <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = {
+        weekday: 'long', year: 'numeric', month: 'long',
+        day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'
+      };
+      const dateTimeString = now.toLocaleDateString('id-ID', options);
+      document.getElementById('datetime').textContent = dateTimeString;
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime(); // panggilan awal
+  </script>
+
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = {
+        weekday: 'long', y
